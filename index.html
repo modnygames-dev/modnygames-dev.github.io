@@ -3,429 +3,752 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Modny Games</title>
+  <meta
+    name="description"
+    content="Modny Games is an independent mobile game studio creating simple, satisfying, and fun games."
+  />
+
   <style>
-    * { box-sizing: border-box; }
+    :root {
+      --bg: #fffaf2;
+      --surface: #ffffff;
+      --surface-soft: #fff3dd;
+      --text: #262626;
+      --text-soft: #6d685f;
+      --primary: #ffb84d;
+      --primary-dark: #e9941e;
+      --blue: #5da9ff;
+      --border: #eee2d1;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f1117;
-      color: #ffffff;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* Header */
     header {
-      padding: 24px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 250, 242, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      min-height: 76px;
+      padding: 0 24px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      justify-content: space-between;
+      gap: 24px;
     }
 
     .logo {
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 0.5px;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.7px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--primary-dark);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     nav a {
-      color: #cfd6e6;
-      margin-left: 24px;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-soft);
+      transition: color 0.2s ease;
     }
 
+    nav a:hover {
+      color: var(--primary-dark);
+    }
+
+    /* Hero */
     .hero {
-      padding: 110px 8% 90px;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: 100px 24px;
       background:
-        radial-gradient(circle at top, rgba(77,163,255,0.22), transparent 45%),
-        linear-gradient(180deg, #151a26 0%, #0f1117 100%);
+        radial-gradient(circle at 20% 20%, rgba(255,184,77,0.25), transparent 28%),
+        radial-gradient(circle at 80% 25%, rgba(93,169,255,0.20), transparent 30%),
+        var(--bg);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .studio-badge {
+      display: inline-block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 16px;
+      margin-bottom: 24px;
+      color: var(--primary-dark);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
     }
 
     .hero h1 {
-      font-size: 56px;
-      margin: 0 0 16px;
+      margin: 0;
+      font-size: clamp(52px, 8vw, 92px);
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: -4px;
+    }
+
+    .hero h1 span {
+      color: var(--primary-dark);
     }
 
     .hero p {
-      max-width: 720px;
-      margin: 0 auto 32px;
-      color: #cfd6e6;
-      font-size: 18px;
+      max-width: 680px;
+      margin: 28px auto 36px;
+      color: var(--text-soft);
+      font-size: 19px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .button {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 999px;
-      background: #4da3ff;
-      color: #06111f;
-      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 160px;
+      min-height: 48px;
+      padding: 15px 24px;
+      border-radius: 14px;
       text-decoration: none;
+      font-weight: 800;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--primary);
+      color: #2d2416;
+      box-shadow: 0 8px 25px rgba(233,148,30,0.20);
+    }
+
+    .button-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    /* Common */
     section {
-      padding: 80px 8%;
-      max-width: 1100px;
-      margin: auto;
+      padding: 100px 24px;
     }
 
-    h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: #171b26;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 26px;
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #ffffff;
-    }
-
-    .card p, section p {
-      color: #cfd6e6;
-    }
-
-    .legal a {
-      display: block;
-      color: #4da3ff;
-      text-decoration: none;
-      margin: 10px 0;
-    }
-
-    footer {
+    .section-title {
+      margin: 0 0 16px;
       text-align: center;
-      padding: 36px 20px;
-      color: #8f98aa;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 42px;
+      letter-spacing: -1.5px;
+    }
+
+    .section-description {
+      max-width: 640px;
+      margin: 0 auto 50px;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 17px;
+    }
+
+    /* Games */
+    #games {
+      background: #ffffff;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .game-card {
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .game-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 50px rgba(40,35,30,0.09);
+    }
+
+    .game-image {
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffe7a8, #ffd26c);
+      color: #614514;
+      font-size: 56px;
+      font-weight: 950;
+      letter-spacing: -3px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .game-image.coming {
+      background: linear-gradient(135deg, #ddebff, #b9d7ff);
+      color: #355f91;
+      font-size: 36px;
+    }
+
+    .game-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .game-content {
+      padding: 28px;
+    }
+
+    .game-tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .game-content h3 {
+      margin: 0 0 10px;
+      font-size: 26px;
+    }
+
+    .game-content p {
+      margin: 0;
+      color: var(--text-soft);
+    }
+
+    /* About */
+    .about-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      background: var(--surface-soft);
+      border-radius: 28px;
+      padding: 60px;
+    }
+
+    .about-box h2 {
+      margin: 0 0 18px;
+      font-size: 42px;
+      letter-spacing: -1.5px;
+      line-height: 1.15;
+    }
+
+    .about-box p {
+      margin: 0;
+      color: var(--text-soft);
+      font-size: 17px;
+    }
+
+    .about-points {
+      display: grid;
+      gap: 16px;
+    }
+
+    .point {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .point strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .point span {
+      color: var(--text-soft);
       font-size: 14px;
     }
 
-    @media (max-width: 600px) {
-      header {
-        display: block;
-        text-align: center;
+    /* Legal */
+    #legal {
+      background: #ffffff;
+    }
+
+    .legal-links {
+      max-width: 760px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .legal-link {
+      padding: 22px 16px;
+      text-align: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .legal-link:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+
+    /* Contact */
+    .contact-box {
+      max-width: 760px;
+      margin: auto;
+      padding: 60px 30px;
+      text-align: center;
+      background: var(--primary);
+      border-radius: 28px;
+      color: #2d2416;
+    }
+
+    .contact-box h2 {
+      margin: 0 0 14px;
+      font-size: 40px;
+    }
+
+    .contact-box p {
+      margin: 0 0 26px;
+    }
+
+    .contact-email {
+      display: inline-block;
+      max-width: 100%;
+      padding: 14px 22px;
+      background: #ffffff;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      word-break: break-word;
+    }
+
+    /* Footer */
+    footer {
+      padding: 38px 24px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .footer-links {
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+    }
+
+    .footer-links a {
+      color: var(--text-soft);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-dark);
+    }
+
+    /* Tablet */
+    @media (max-width: 900px) {
+      .games-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-box {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 42px 32px;
+      }
+
+      .legal-links {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .nav {
+        min-height: auto;
+        padding: 14px 18px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .logo {
+        font-size: 21px;
       }
 
       nav {
-        margin-top: 16px;
+        width: 100%;
+        gap: 10px 18px;
+        justify-content: flex-start;
       }
 
       nav a {
-        margin: 0 8px;
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: 500px;
+        padding: 72px 18px;
+      }
+
+      .studio-badge {
+        font-size: 11px;
+        margin-bottom: 18px;
+      }
+
+      .hero h1 {
+        font-size: clamp(44px, 14vw, 64px);
+        letter-spacing: -2.5px;
+      }
+
+      .hero p {
+        font-size: 16px;
+        margin: 22px auto 28px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      section {
+        padding: 68px 18px;
+      }
+
+      .section-title {
+        font-size: 34px;
+      }
+
+      .section-description {
+        margin-bottom: 34px;
+        font-size: 15px;
+      }
+
+      .game-card {
+        border-radius: 20px;
+      }
+
+      .game-image {
+        height: 220px;
+        font-size: 44px;
+      }
+
+      .game-image.coming {
+        font-size: 30px;
+      }
+
+      .game-content {
+        padding: 22px;
+      }
+
+      .game-content h3 {
+        font-size: 23px;
+      }
+
+      .about-box {
+        padding: 30px 22px;
+        border-radius: 22px;
+      }
+
+      .about-box h2 {
+        font-size: 31px;
+      }
+
+      .contact-box {
+        padding: 42px 22px;
+        border-radius: 22px;
+      }
+
+      .contact-box h2 {
+        font-size: 32px;
+      }
+    }
+
+    /* Very small phones */
+    @media (max-width: 380px) {
+      nav {
+        gap: 8px 12px;
+      }
+
+      nav a {
+        font-size: 12px;
       }
 
       .hero h1 {
         font-size: 42px;
       }
-    }
-  </style>
-</head>
-<body>
 
-<header>
-  <div class="logo">Modny Games</div>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#games">Games</a>
-    <a href="#legal">Legal</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<div class="hero">
-  <h1>Modny Games</h1>
-  <p>
-    We create mobile games focused on satisfying action, steady progression,
-    and fun gameplay experiences for players around the world.
-  </p>
-  <a class="button" href="#games">Explore Our Games</a>
-</div>
-
-<section id="about">
-  <h2>About Us</h2>
-  <p>
-    Modny Games is an independent mobile game studio developing accessible,
-    replayable, and progression-driven games. Our goal is to create games that
-    are easy to start, satisfying to play, and enjoyable over time.
-  </p>
-</section>
-
-<section id="games">
-  <h2>Games</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Mobile Action Game</h3>
-      <p>
-        A casual action game currently in development, designed around simple
-        controls, fast battles, item growth, and rewarding progression.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>More Games Coming Soon</h3>
-      <p>
-        We are continuously developing new gameplay ideas and expanding our
-        mobile game lineup.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="legal" class="legal">
-  <h2>Legal</h2>
-  <p>
-    You can find our policies and account-related information below.
-  </p>
-
-  <a href="privacy-policy.html">Privacy Policy</a>
-  <a href="terms.html">Terms of Service</a>
-  <a href="https://modnygames-dev.github.io/account-deletion/">Account Deletion</a>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>
-    For support, business inquiries, or privacy-related requests, please contact:
-  </p>
-  <p>
-    <strong>contact@modnygames.com</strong>
-  </p>
-</section>
-
-<footer>
-  © 2026 Modny Games. All rights reserved.
-</footer>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modny Games</title>
-  <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f1117;
-      color: #ffffff;
-      line-height: 1.6;
-    }
-
-    header {
-      padding: 24px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-    }
-
-    nav a {
-      color: #cfd6e6;
-      margin-left: 24px;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    .hero {
-      padding: 110px 8% 90px;
-      text-align: center;
-      background:
-        radial-gradient(circle at top, rgba(77,163,255,0.22), transparent 45%),
-        linear-gradient(180deg, #151a26 0%, #0f1117 100%);
-    }
-
-    .hero h1 {
-      font-size: 56px;
-      margin: 0 0 16px;
-    }
-
-    .hero p {
-      max-width: 720px;
-      margin: 0 auto 32px;
-      color: #cfd6e6;
-      font-size: 18px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 999px;
-      background: #4da3ff;
-      color: #06111f;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    section {
-      padding: 80px 8%;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: #171b26;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 26px;
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #ffffff;
-    }
-
-    .card p, section p {
-      color: #cfd6e6;
-    }
-
-    .legal a {
-      display: block;
-      color: #4da3ff;
-      text-decoration: none;
-      margin: 10px 0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 36px 20px;
-      color: #8f98aa;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      font-size: 14px;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        display: block;
-        text-align: center;
-      }
-
-      nav {
-        margin-top: 16px;
-      }
-
-      nav a {
-        margin: 0 8px;
-      }
-
-      .hero h1 {
-        font-size: 42px;
+      .game-image {
+        height: 190px;
+        font-size: 38px;
       }
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <div class="logo">Modny Games</div>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#games">Games</a>
-    <a href="#legal">Legal</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <header>
+    <div class="nav">
+      <a class="logo" href="#">Modny <span>Games</span></a>
 
-<div class="hero">
-  <h1>Modny Games</h1>
-  <p>
-    We create mobile games focused on satisfying action, steady progression,
-    and fun gameplay experiences for players around the world.
-  </p>
-  <a class="button" href="#games">Explore Our Games</a>
-</div>
+      <nav>
+        <a href="#games">Games</a>
+        <a href="#about">About</a>
+        <a href="#legal">Legal</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<section id="about">
-  <h2>About Us</h2>
-  <p>
-    Modny Games is an independent mobile game studio developing accessible,
-    replayable, and progression-driven games. Our goal is to create games that
-    are easy to start, satisfying to play, and enjoyable over time.
-  </p>
-</section>
+  <main>
 
-<section id="games">
-  <h2>Games</h2>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="studio-badge">INDEPENDENT GAME STUDIO</div>
 
-  <div class="cards">
-    <div class="card">
-      <h3>Mobile Action Game</h3>
-      <p>
-        A casual action game currently in development, designed around simple
-        controls, fast battles, item growth, and rewarding progression.
-      </p>
+        <h1>Modny <span>Games</span></h1>
+
+        <p>
+          We create simple, satisfying, and replayable mobile games
+          designed to deliver fun from the very first minute.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="button button-primary" href="#games">Our Games</a>
+          <a class="button button-secondary" href="#about">About Us</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="games">
+      <div class="container">
+
+        <h2 class="section-title">Our Games</h2>
+
+        <p class="section-description">
+          Games built around simple controls, satisfying action,
+          and rewarding progression.
+        </p>
+
+        <div class="games-grid">
+
+          <article class="game-card">
+            <div class="game-image">PEW PEW</div>
+
+            <div class="game-content">
+              <div class="game-tag">Mobile Action</div>
+              <h3>PEW PEW</h3>
+              <p>
+                A fast-paced mobile action game featuring simple controls,
+                intense battles, equipment upgrades, and satisfying progression.
+              </p>
+            </div>
+          </article>
+
+          <article class="game-card">
+            <div class="game-image coming">MORE GAMES</div>
+
+            <div class="game-content">
+              <div class="game-tag">In Development</div>
+              <h3>More Games Coming</h3>
+              <p>
+                New mobile game experiences are currently in development
+                at Modny Games.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+
+        <div class="about-box">
+
+          <div>
+            <h2>
+              Games should be simple to start and hard to put down.
+            </h2>
+
+            <p>
+              Modny Games is an independent game studio focused on creating
+              mobile games with accessible gameplay, satisfying progression,
+              and memorable moments.
+            </p>
+          </div>
+
+          <div class="about-points">
+
+            <div class="point">
+              <strong>Simple Controls</strong>
+              <span>Easy to understand from the first minute.</span>
+            </div>
+
+            <div class="point">
+              <strong>Satisfying Progression</strong>
+              <span>Players should always feel themselves getting stronger.</span>
+            </div>
+
+            <div class="point">
+              <strong>Made for Mobile</strong>
+              <span>Designed around short sessions and intuitive interaction.</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="legal">
+      <div class="container">
+
+        <h2 class="section-title">Legal</h2>
+
+        <p class="section-description">
+          Privacy, terms, and account management information.
+        </p>
+
+        <div class="legal-links">
+
+          <a class="legal-link" href="privacy-policy.html">
+            Privacy Policy
+          </a>
+
+          <a class="legal-link" href="terms.html">
+            Terms of Service
+          </a>
+
+          <a
+            class="legal-link"
+            href="https://modnygames-dev.github.io/account-deletion/"
+          >
+            Account Deletion
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+
+        <div class="contact-box">
+
+          <h2>Get in Touch</h2>
+
+          <p>
+            For game support, business inquiries,
+            or privacy-related requests.
+          </p>
+
+          <a
+            class="contact-email"
+            href="mailto:contact@modnygames.com"
+          >
+            contact@modnygames.com
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div class="footer-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+      <a href="https://modnygames-dev.github.io/account-deletion/">
+        Account Deletion
+      </a>
     </div>
 
-    <div class="card">
-      <h3>More Games Coming Soon</h3>
-      <p>
-        We are continuously developing new gameplay ideas and expanding our
-        mobile game lineup.
-      </p>
-    </div>
-  </div>
-</section>
+    © 2026 Modny Games. All rights reserved.
 
-<section id="legal" class="legal">
-  <h2>Legal</h2>
-  <p>
-    You can find our policies and account-related information below.
-  </p>
-
-  <a href="privacy-policy.html">Privacy Policy</a>
-  <a href="terms.html">Terms of Service</a>
-  <a href="https://modnygames-dev.github.io/account-deletion/">Account Deletion</a>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>
-    For support, business inquiries, or privacy-related requests, please contact:
-  </p>
-  <p>
-    <strong>contact@modnygames.com</strong>
-  </p>
-</section>
-
-<footer>
-  © 2026 Modny Games. All rights reserved.
-</footer>
+  </footer>
 
 </body>
 </html>
