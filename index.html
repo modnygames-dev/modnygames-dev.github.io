@@ -288,6 +288,67 @@
       color: var(--text-soft);
     }
 
+
+    .games-loading {
+      grid-column: 1 / -1;
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--text-soft);
+      font-weight: 700;
+    }
+
+    .game-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .game-feature {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--text-soft);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .game-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .game-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 15px;
+      border-radius: 12px;
+      text-decoration: none;
+      background: var(--text);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .game-link:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .game-link.secondary {
+      background: var(--surface-soft);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
     /* About */
     .about-box {
       display: grid;
@@ -611,33 +672,7 @@
         </p>
 
         <div class="games-grid">
-
-          <article class="game-card">
-            <div class="game-image">PEW PEW</div>
-
-            <div class="game-content">
-              <div class="game-tag">Mobile Action</div>
-              <h3>PEW PEW</h3>
-              <p>
-                A fast-paced mobile action game featuring simple controls,
-                intense battles, equipment upgrades, and satisfying progression.
-              </p>
-            </div>
-          </article>
-
-          <article class="game-card">
-            <div class="game-image coming">MORE GAMES</div>
-
-            <div class="game-content">
-              <div class="game-tag">In Development</div>
-              <h3>More Games Coming</h3>
-              <p>
-                New mobile game experiences are currently in development
-                at Modny Games.
-              </p>
-            </div>
-          </article>
-
+          <div id="games-loading" class="games-loading">Loading games...</div>
         </div>
       </div>
     </section>
@@ -749,6 +784,140 @@
     © 2026 Modny Games. All rights reserved.
 
   </footer>
+
+
+  <script>
+    async function loadGames() {
+      const grid = document.querySelector(".games-grid");
+
+      try {
+        const response = await fetch("games.json", { cache: "no-store" });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const games = await response.json();
+
+        if (!Array.isArray(games)) {
+          throw new Error("games.json must contain an array.");
+        }
+
+        grid.innerHTML = "";
+
+        if (games.length === 0) {
+          grid.innerHTML = '<div class="games-loading">No games available yet.</div>';
+          return;
+        }
+
+        games.forEach((game) => {
+          const card = document.createElement("article");
+          card.className = "game-card";
+
+          const imageArea = document.createElement("div");
+          imageArea.className = "game-image";
+
+          if (game.image) {
+            const img = document.createElement("img");
+            img.src = game.image;
+            img.alt = `${game.title || "Game"} cover`;
+            img.loading = "lazy";
+
+            img.onerror = () => {
+              imageArea.innerHTML = "";
+              imageArea.textContent = game.title || "GAME";
+            };
+
+            imageArea.appendChild(img);
+          } else {
+            imageArea.textContent = game.title || "GAME";
+          }
+
+          const content = document.createElement("div");
+          content.className = "game-content";
+
+          if (game.genre) {
+            const tag = document.createElement("div");
+            tag.className = "game-tag";
+            tag.textContent = game.genre;
+            content.appendChild(tag);
+          }
+
+          const title = document.createElement("h3");
+          title.textContent = game.title || "Untitled Game";
+          content.appendChild(title);
+
+          if (game.description) {
+            const description = document.createElement("p");
+            description.textContent = game.description;
+            content.appendChild(description);
+          }
+
+          if (Array.isArray(game.features) && game.features.length > 0) {
+            const features = document.createElement("div");
+            features.className = "game-features";
+
+            game.features.forEach((featureText) => {
+              const feature = document.createElement("span");
+              feature.className = "game-feature";
+              feature.textContent = featureText;
+              features.appendChild(feature);
+            });
+
+            content.appendChild(features);
+          }
+
+          const links = document.createElement("div");
+          links.className = "game-links";
+
+          if (game.googlePlay) {
+            const googlePlay = document.createElement("a");
+            googlePlay.className = "game-link";
+            googlePlay.href = game.googlePlay;
+            googlePlay.target = "_blank";
+            googlePlay.rel = "noopener noreferrer";
+            googlePlay.textContent = "Google Play";
+            links.appendChild(googlePlay);
+          }
+
+          if (game.appStore) {
+            const appStore = document.createElement("a");
+            appStore.className = "game-link";
+            appStore.href = game.appStore;
+            appStore.target = "_blank";
+            appStore.rel = "noopener noreferrer";
+            appStore.textContent = "App Store";
+            links.appendChild(appStore);
+          }
+
+          if (game.website) {
+            const website = document.createElement("a");
+            website.className = "game-link secondary";
+            website.href = game.website;
+            website.target = "_blank";
+            website.rel = "noopener noreferrer";
+            website.textContent = "Learn More";
+            links.appendChild(website);
+          }
+
+          if (links.children.length > 0) {
+            content.appendChild(links);
+          }
+
+          card.appendChild(imageArea);
+          card.appendChild(content);
+          grid.appendChild(card);
+        });
+
+      } catch (error) {
+        console.error("Failed to load games.json:", error);
+        grid.innerHTML =
+          '<div class="games-loading">Could not load game information.</div>';
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadGames);
+  </script>
 
 </body>
 </html>
