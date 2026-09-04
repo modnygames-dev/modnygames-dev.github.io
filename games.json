@@ -1,16 +1,14 @@
-[
-  {
-    "title": "Bow Slayer",
-    "genre": "Mobile Action",
-    "description": "A fast-paced mobile action game featuring simple controls, intense battles, equipment upgrades, and satisfying progression.",
-    "image": "images/bowslayer.jpg",
-    "features": [
-      "Simple Controls",
-      "Equipment Builds",
-      "Fast Progression"
-    ],
-    "googlePlay": "",
-    "appStore": "",
-    "website": ""
-  }
-]
+{
+  "title": "PEW PEW",
+  "genre": "Mobile Action",
+  "description": "A fast-paced mobile action game featuring simple controls, intense battles, equipment upgrades, and satisfying progression.",
+  "image": "images/pewpew.jpg",
+  "features": [
+    "Simple Controls",
+    "Equipment Builds",
+    "Fast Progression"
+  ],
+  "googlePlay": "https://play.google.com/store/apps/details?id=com.modnygames.modny21",
+  "appStore": "",
+  "website": ""
+}
