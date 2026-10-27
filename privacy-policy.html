@@ -30,24 +30,26 @@
 </head>
 <body>
 
+<p style="float:right;font-size:.9em"><a href="privacy-policy-ko.html">한국어</a></p>
 <h1>Privacy Policy</h1>
-<p class="updated">Last Updated: February 20, 2026</p>
+<p class="updated">Last Updated: October 27, 2026</p>
 
-<p>Modny Games ("we," "our," or "us") develops and operates mobile games (collectively, the "Games"). This Privacy Policy applies to all Games published by Modny Games and explains how we collect, use, share, and protect your information.</p>
+<p>Modny Games ("we," "our," or "us") develops and operates mobile games (collectively, the "Games"). This Privacy Policy applies to all Games published by Modny Games and explains how we collect, use, share, and protect your information. It also explains how our internal publishing tool, Modny Studio, uses third-party platform APIs to post content to our own official social media accounts (see Section 3).</p>
 <p>By using any of our Games, you agree to the practices described in this policy.</p>
 
 <h2>1. Information We Collect</h2>
 
 <h3>Information You Provide</h3>
 <ul>
-  <li>Account identifiers (if you sign in with Google Play Games)</li>
+  <li>Account identifiers (if you sign in with Google Play Games, Game Center or Sign in with Apple — we receive an account ID, and with Sign in with Apple only the name or relay email address you choose to share)</li>
   <li>Support inquiries and correspondence</li>
 </ul>
 
 <h3>Automatically Collected</h3>
 <ul>
   <li><strong>Device information</strong> — model, operating system version, language, region, screen resolution</li>
-  <li><strong>Advertising identifiers</strong> — Google Advertising ID (GAID)</li>
+  <li><strong>Advertising identifiers</strong> — Google Advertising ID (GAID) on Android; Apple Identifier for Advertisers (IDFA) on iOS, only if you allow tracking through Apple's App Tracking Transparency prompt</li>
+  <li><strong>Push notification token</strong> — if you allow notifications, a device token used only to send game notifications (you can turn notifications off in device settings)</li>
   <li><strong>Gameplay data</strong> — progression, stage completion, in-game purchases, session length</li>
   <li><strong>Diagnostics</strong> — crash logs, performance data, error reports</li>
   <li><strong>Approximate location</strong> — derived from IP address (country/region level only)</li>
@@ -59,10 +61,14 @@
 
 <p>Our Games use some or all of the following third-party services, which may collect information as described in their own privacy policies. The specific services used vary by game:</p>
 
+<p>We also operate our own game servers (to save your progress and process purchases) and our own analytics server (to measure gameplay events such as stage completion). Data stored on these servers is used only for the purposes in Section 4 and is not sold.</p>
+
 <h3>Analytics &amp; Infrastructure</h3>
 <table>
   <tr><th>Service</th><th>Purpose</th><th>Privacy Policy</th></tr>
+  <tr><td>Apple (App Store, Game Center, Sign in with Apple)</td><td>Platform services, authentication, purchases</td><td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Link</a></td></tr>
   <tr><td>Google Play Services</td><td>Platform services, authentication</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Link</a></td></tr>
+  <tr><td>Amazon Web Services (United States, US East region)</td><td>Hosting of our game servers and databases (game progress, purchase records)</td><td><a href="https://aws.amazon.com/privacy/" target="_blank" rel="noopener">Link</a></td></tr>
   <tr><td>Firebase Analytics</td><td>Usage analytics</td><td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Link</a></td></tr>
   <tr><td>Firebase Crashlytics</td><td>Crash reporting</td><td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Link</a></td></tr>
 </table>
@@ -76,7 +82,27 @@
   <tr><td>Unity Ads</td><td>Advertising</td><td><a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" target="_blank" rel="noopener">Link</a></td></tr>
 </table>
 
-<h2>3. How We Use Information</h2>
+<h2>3. Promotional Publishing to Our Official Accounts (YouTube API Services and Other Platforms)</h2>
+
+<p>Modny Studio is an internal tool used only by Modny Games staff to publish promotional content (gameplay trailers, screenshots and announcements of our own Games) to the official accounts that Modny Games owns. It is not offered to players or the public.</p>
+
+<table>
+  <tr><th>Platform</th><th>What the tool does</th><th>Platform policy</th></tr>
+  <tr><td>YouTube (YouTube API Services)</td><td>Uploads our own videos to our own YouTube channel (videos.insert)</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> · <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube Terms of Service</a></td></tr>
+  <tr><td>TikTok (Content Posting API)</td><td>Posts our own videos to our own TikTok account</td><td><a href="https://www.tiktok.com/legal/privacy-policy" target="_blank" rel="noopener">TikTok Privacy Policy</a></td></tr>
+  <tr><td>Instagram and Threads (Meta)</td><td>Posts our own Reels and posts to our own accounts</td><td><a href="https://privacycenter.instagram.com/policy" target="_blank" rel="noopener">Meta Privacy Policy</a></td></tr>
+  <tr><td>X</td><td>Posts our own announcements to our own X account</td><td><a href="https://x.com/en/privacy" target="_blank" rel="noopener">X Privacy Policy</a></td></tr>
+</table>
+
+<ul>
+  <li><strong>Our accounts only.</strong> The tool signs in only to accounts owned by Modny Games and uses only the permissions needed to publish our own content (for YouTube, the <code>youtube.upload</code> scope).</li>
+  <li><strong>No data about other users.</strong> The tool does not read, collect, store, analyze or share personal data of other YouTube, TikTok, Instagram, Threads or X users. It does not use search, comment, analytics or messaging endpoints.</li>
+  <li><strong>What is stored.</strong> Only the access and refresh tokens for our own accounts, the content we publish and the resulting post links. Tokens are stored on our studio server, are never shared with third parties and are deleted when we disconnect an account.</li>
+  <li><strong>Revoking access.</strong> Access granted to the tool can be revoked at any time from the platform's security settings — for Google/YouTube at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">https://myaccount.google.com/permissions</a>.</li>
+  <li>Data processed by these platforms is governed by their own privacy policies listed above. Our use of YouTube API Services is subject to the <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
+</ul>
+
+<h2>4. How We Use Information</h2>
 <ul>
   <li>Operate, maintain, and improve the Game</li>
   <li>Save and restore your game progress</li>
@@ -87,26 +113,40 @@
   <li>Comply with legal obligations</li>
 </ul>
 
-<h2>4. Advertising</h2>
+<h2>5. Advertising</h2>
 
 <p>Our Games may display rewarded video advertisements. Our advertising partners may use your advertising identifier to deliver personalized ads and measure their effectiveness.</p>
 
 <p><strong>You can control personalized advertising:</strong></p>
 <ul>
   <li><strong>Android:</strong> Settings → Google → Ads → Delete advertising ID (or Opt out of Ads Personalization)</li>
+  <li><strong>iOS:</strong> Settings → Privacy &amp; Security → Tracking → turn off for the Game (or "Allow Apps to Request to Track"). We ask for permission through Apple's App Tracking Transparency prompt before accessing your IDFA.</li>
+  <li><strong>EEA / UK / Switzerland:</strong> you can change your consent choices at any time from the privacy settings in the Game.</li>
 </ul>
 
 <p>Opting out does not remove ads; it makes them less relevant to you.</p>
 
-<h2>5. Children's Privacy</h2>
+<h2>6. Children's Privacy</h2>
 
 <p>Our Games are <strong>not directed to children under 13</strong>. We do not knowingly collect personal information from children under 13.</p>
 
-<p>If you believe a child under 13 has provided us with personal information, contact us at <a href="mailto:plus8841@gmail.com">plus8841@gmail.com</a> and we will delete it promptly.</p>
+<p>If you believe a child under 13 has provided us with personal information, contact us at <a href="mailto:contact@modnygames.com">contact@modnygames.com</a> and we will delete it promptly.</p>
 
 <p>Our Games are rated for teen audiences and may contain in-app purchases and randomized virtual item mechanics. Age ratings and content details are shown on each game’s store listing.</p>
 
-<h2>6. Your California Privacy Rights (CCPA / CPRA)</h2>
+<h2>7. Your Rights in the EEA, UK and Switzerland (GDPR)</h2>
+
+<p>If you are in the European Economic Area, the United Kingdom or Switzerland, Modny Games is the controller of your personal data. We process it on these legal bases:</p>
+<ul>
+  <li><strong>Performance of a contract</strong> — operating the Game, saving progress and processing purchases</li>
+  <li><strong>Legitimate interests</strong> — security, fraud and cheat prevention, crash diagnostics and improving the Game</li>
+  <li><strong>Consent</strong> — personalized advertising and related measurement. We ask for consent in the Game before ads are initialized, and you can withdraw it at any time in the Game's privacy settings</li>
+  <li><strong>Legal obligation</strong> — tax, accounting and other legal requirements</li>
+</ul>
+<p>You have the right to access, correct, delete, restrict or object to processing of your data, to data portability, and to withdraw consent at any time. To exercise these rights, email <a href="mailto:contact@modnygames.com">contact@modnygames.com</a>. You may also lodge a complaint with your local data protection authority.</p>
+<p>Our service providers may process data outside your country, including in the United States and the Republic of Korea. Where required, such transfers are protected by appropriate safeguards such as the European Commission's Standard Contractual Clauses.</p>
+
+<h2>8. Your California Privacy Rights (CCPA / CPRA)</h2>
 
 <p>If you are a California resident, you have the right to:</p>
 <ul>
@@ -119,14 +159,14 @@
 
 <div class="note">
   <p><strong>Regarding "sale" or "sharing":</strong> We do not sell personal information for money. However, our use of advertising identifiers for personalized advertising may be considered "sharing" under the CPRA.</p>
-  <p><strong>To opt out</strong>, disable your advertising ID in device settings (see Section 4) or email us at <a href="mailto:plus8841@gmail.com?subject=Do%20Not%20Sell%20or%20Share%20My%20Personal%20Information">plus8841@gmail.com</a> with the subject "Do Not Sell or Share My Personal Information."</p>
+  <p><strong>To opt out</strong>, disable your advertising ID in device settings (see Section 5) or email us at <a href="mailto:contact@modnygames.com?subject=Do%20Not%20Sell%20or%20Share%20My%20Personal%20Information">contact@modnygames.com</a> with the subject "Do Not Sell or Share My Personal Information."</p>
 </div>
 
-<p><strong>To exercise other rights</strong>, email <a href="mailto:plus8841@gmail.com">plus8841@gmail.com</a>. We will respond within 45 days.</p>
+<p><strong>To exercise other rights</strong>, email <a href="mailto:contact@modnygames.com">contact@modnygames.com</a>. We will respond within 45 days.</p>
 
 <p><strong>Categories of information collected in the past 12 months:</strong> identifiers (advertising ID, device ID), internet activity (gameplay data), approximate geolocation, and inferences drawn for advertising purposes.</p>
 
-<h2>7. Data Retention</h2>
+<h2>9. Data Retention</h2>
 
 <table>
   <tr><th>Data Type</th><th>Retention Period</th></tr>
@@ -134,27 +174,31 @@
   <tr><td>Analytics data</td><td>Up to 26 months</td></tr>
   <tr><td>Crash logs</td><td>Up to 90 days</td></tr>
   <tr><td>Support correspondence</td><td>Up to 2 years</td></tr>
+  <tr><td>Purchase records</td><td>As required by tax and accounting laws (up to 5 years)</td></tr>
+  <tr><td>Tokens for our own social media accounts (Section 3)</td><td>Until the account is disconnected from Modny Studio</td></tr>
 </table>
 
-<h2>8. Account Deletion</h2>
+<h2>10. Account Deletion</h2>
 
 <p>You may request deletion of your account and associated data at:</p>
 <p><a href="https://modnygames-dev.github.io/account-deletion/" target="_blank" rel="noopener"><strong>Account Deletion Request</strong></a></p>
-<p>Or email <a href="mailto:plus8841@gmail.com">plus8841@gmail.com</a> with your account identifier.</p>
+<p>Or email <a href="mailto:contact@modnygames.com">contact@modnygames.com</a> with your account identifier.</p>
 <p>Deletion is permanent. Purchased virtual items and progress cannot be restored.</p>
 
-<h2>9. Data Security</h2>
+<h2>11. Data Security</h2>
 
 <p>We use commercially reasonable measures to protect your information, including encrypted transmission (HTTPS) and access controls. No method of transmission or storage is completely secure.</p>
 
-<h2>10. Changes to This Policy</h2>
+<h2>12. Changes to This Policy</h2>
 
 <p>We may update this Privacy Policy. Material changes will be announced in-game or through the app store listing. Continued use after changes constitutes acceptance.</p>
 
-<h2>11. Contact</h2>
+<h2>13. Contact</h2>
 
-<p><strong>Modny Games</strong><br>
-Email: <a href="mailto:plus8841@gmail.com">plus8841@gmail.com</a></p>
+<p><strong>Modnygames</strong> (Representative / Data Protection Officer: Donggeun Choi)<br>
+Business registration no. 670-26-00736<br>
+202-dong 10F, Seobu Gyeonggi Cultural Creative Hub V11, 18 Bucheon-ro 198beon-gil, Wonmi-gu, Bucheon-si, Gyeonggi-do, Republic of Korea<br>
+Email: <a href="mailto:contact@modnygames.com">contact@modnygames.com</a></p>
 
 <footer>
   <p>© 2026 Modny Games. All rights reserved.<br>
